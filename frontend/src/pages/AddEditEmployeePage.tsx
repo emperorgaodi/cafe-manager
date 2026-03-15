@@ -83,7 +83,7 @@ export default function AddEditEmployeePage() {
           <ReusableTextInput
             name="name"
             label="Full Name"
-            placeholder="e.g. AliceTan"
+            placeholder="e.g. Alice Tan"
             maxLength={30}
             rules={[
               { required: true, message: 'Name is required.' },
