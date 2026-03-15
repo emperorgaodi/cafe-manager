@@ -1,8 +1,10 @@
 import axios, { AxiosError } from 'axios'
 
-// Always use /api as the base — nginx proxies it to the backend
+// In Railway the browser calls the backend directly.
+// VITE_API_BASE_URL is set at build time via Railway environment variables.
+// Falls back to /api for local Docker Compose (where nginx proxies it).
 const apiClient = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 15_000,
 })
 
