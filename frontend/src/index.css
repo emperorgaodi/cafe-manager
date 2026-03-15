@@ -1,0 +1,195 @@
+/* ── Tailwind ─────────────────────────────────────────────────────────────────
+   preflight is disabled in tailwind.config.js to avoid conflicts with Ant Design
+   ────────────────────────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Design Tokens ─────────────────────────────────────────────────────
+   Define the app's visual language in one place.
+   Use these variables throughout the app instead of raw hex values.
+   ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --color-brand:        #2563eb;   /* Primary blue */
+  --color-brand-dark:   #1d4ed8;
+  --color-brand-light:  #eff6ff;
+  --color-danger:       #dc2626;
+  --color-surface:      #ffffff;
+  --color-bg:           #f1f5f9;
+  --color-border:       #e2e8f0;
+  --color-text:         #1e293b;
+  --color-text-muted:   #64748b;
+
+  --radius-card:  12px;
+  --shadow-card:  0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-hover: 0 4px 12px 0 rgb(0 0 0 / 0.1);
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Custom Layout ────────────────────────────────────────────────────────── */
+.app-header {
+  background: linear-gradient(135deg, var(--color-brand) 0%, #1e40af 100%);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 60px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+}
+
+.app-header__logo {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+/* ── Page Card ────────────────────────────────────────────────────────────── */
+.page-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 24px 28px;
+  margin: 24px;
+  border: 1px solid var(--color-border);
+}
+
+/* ── Page Header ──────────────────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-brand-light);
+}
+
+.page-header__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 !important;
+}
+
+.page-header__subtitle {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ── Stat Badge ───────────────────────────────────────────────────────────── */
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-brand-light);
+  color: var(--color-brand);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+.stat-badge:hover {
+  background: #dbeafe;
+  color: var(--color-brand-dark);
+}
+
+/* ── Employee ID Badge ────────────────────────────────────────────────────── */
+.employee-id {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  background: #f8fafc;
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+/* ── AG Grid custom theme overrides ──────────────────────────────────────── */
+.ag-theme-alpine {
+  --ag-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ag-font-size: 13px;
+  --ag-row-height: 52px;
+  --ag-header-height: 44px;
+  --ag-header-background-color: var(--color-brand-light);
+  --ag-header-foreground-color: var(--color-brand-dark);
+  --ag-border-color: var(--color-border);
+  --ag-row-border-color: var(--color-border);
+  --ag-row-hover-color: #f8fafc;
+  --ag-selected-row-background-color: #eff6ff;
+  --ag-odd-row-background-color: #fafbfc;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.ag-theme-alpine .ag-header-cell-label {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ── Form Card ────────────────────────────────────────────────────────────── */
+.form-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  padding: 28px 32px;
+  max-width: 520px;
+}
+
+/* ── Unsaved changes warning ─────────────────────────────────────────────── */
+.unsaved-banner {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #92400e;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Empty State ──────────────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.empty-state__icon {
+  font-size: 48px;
+  margin: 0 0 12px;
+}
+
+.empty-state__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.empty-state__description {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+  max-width: 300px;
+}

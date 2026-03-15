@@ -1,0 +1,31 @@
+# Environment / secrets — never commit these
+.env
+.env.local
+.env.production
+
+# Build outputs
+backend/src/**/bin/
+backend/src/**/obj/
+frontend/dist/
+frontend/node_modules/
+
+# Logs
+logs/
+*.log
+
+# Uploaded files
+backend/uploads/
+
+# IDE
+.idea/
+.vscode/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# EF Core migrations snapshot (keep actual migrations)
+# Uncomment if you want to exclude:
+# backend/src/CafeManager.Infrastructure/Migrations/

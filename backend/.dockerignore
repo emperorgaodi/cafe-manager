@@ -1,0 +1,7 @@
+# Exclude build artifacts — keeps the Docker build context small and fast
+**/bin/
+**/obj/
+**/.git/
+**/*.user
+**/uploads/
+**/logs/
