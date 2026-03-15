@@ -1,6 +1,7 @@
 # Café Employee Manager
 
 Full-stack web application for managing cafés and employees.
+Live Demo: https://cafemanager.up.railway.app
 
 ## Tech Stack
 
@@ -21,15 +22,6 @@ CafeManager.Application    ← CQRS commands/queries via MediatR. FluentValidati
 CafeManager.Infrastructure ← EF Core + PostgreSQL. Repository implementations.
 CafeManager.API            ← ASP.NET controllers. Autofac module. Middleware.
 ```
-
-**Key patterns:**
-- **CQRS** — every operation is a distinct `Command` (write) or `Query` (read), each with its own handler
-- **Mediator** — controllers call `_mediator.Send(...)` only; completely decoupled from business logic
-- **Autofac** — `ApplicationModule` registers repositories via Autofac; MediatR handlers and validators are registered via `AddMediatR` and `AddValidatorsFromAssembly`
-- **Validation pipeline** — `ValidationBehavior<T>` runs FluentValidation automatically before every handler
-- **RFC 7807 ProblemDetails** — all errors returned as structured `application/problem+json`
-- **Serilog** — structured JSON logging with daily file rotation
-- **Health check** — `GET /health` for container orchestrators
 
 ### Frontend — Feature-based structure
 
