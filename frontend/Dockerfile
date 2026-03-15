@@ -12,8 +12,8 @@ RUN npm run build
 FROM nginx:stable-alpine AS runtime
 
 COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy nginx config as a template — envsubst fills in BACKEND_URL at startup
-COPY nginx.conf /etc/nginx/templates/default.conf.template
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
 EXPOSE 80
+CMD ["/start.sh"]

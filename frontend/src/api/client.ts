@@ -1,10 +1,8 @@
 import axios, { AxiosError } from 'axios'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const apiBaseUrl = (import.meta as any).env?.VITE_API_BASE_URL ?? '/api'
-
+// Always use /api as the base — nginx proxies it to the backend
 const apiClient = axios.create({
-  baseURL: apiBaseUrl,
+  baseURL: '/api',
   timeout: 15_000,
 })
 
