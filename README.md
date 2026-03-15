@@ -1,6 +1,7 @@
 # Café Employee Manager
 
 Full-stack web application for managing cafés and employees.
+
 Live Demo: https://cafemanager.up.railway.app
 
 ## Tech Stack
